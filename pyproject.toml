@@ -1,0 +1,35 @@
+[project]
+name = "tlm"
+version = "0.1.0"
+description = "A small transformer language model, trained from scratch on TinyStories"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "numpy>=2.4",
+    "regex>=2026.3.32",
+    "torch~=2.11.0",
+    "tqdm>=4.67",
+    "wandb>=0.25",
+    "ruff>=0.15.8",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.0,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "tlm"
+module-root = ""
+
+[tool.uv]
+package = true
+python-preference = "managed"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint.extend-per-file-ignores]
+"__init__.py" = ["E402", "F401", "F403", "E501"]
+
+[tool.ruff.lint]
+extend-select = ["UP"]
+ignore = ["F722"]
