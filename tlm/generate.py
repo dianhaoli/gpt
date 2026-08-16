@@ -1,3 +1,5 @@
+from typing import Callable
+
 import torch
 import torch.nn.functional as F
 
@@ -14,6 +16,7 @@ def generate(
     top_k: int | None = 50,
     top_p: float | None = None,
     eos_token_id: int | None = None,
+    on_token: Callable[[int], None] | None = None,
 ) -> list[int]:
     model.eval()
     idx = torch.tensor([prompt_ids], dtype=torch.long, device=device)
@@ -24,6 +27,8 @@ def generate(
         next_logits = logits[:, -1, :]
         next_token = sample_token(next_logits, temperature, top_k, top_p)
         generated.append(next_token)
+        if on_token is not None:
+            on_token(next_token)
         if eos_token_id is not None and next_token == eos_token_id:
             break
         idx = torch.tensor([[next_token]], dtype=torch.long, device=device)

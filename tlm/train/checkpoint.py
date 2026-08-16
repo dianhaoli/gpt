@@ -10,9 +10,10 @@ from tlm.model.config import TransformerConfig
 
 def save_checkpoint(path: str, model: nn.Module, optimizer: Optimizer, step: int, config: TransformerConfig) -> None:
     Path(path).parent.mkdir(parents=True, exist_ok=True)
+    raw_model = getattr(model, "_orig_mod", model)
     torch.save(
         {
-            "model_state": model.state_dict(),
+            "model_state": raw_model.state_dict(),
             "optimizer_state": optimizer.state_dict(),
             "step": step,
             "config": dataclasses.asdict(config),
@@ -23,7 +24,8 @@ def save_checkpoint(path: str, model: nn.Module, optimizer: Optimizer, step: int
 
 def load_checkpoint(path: str, model: nn.Module, optimizer: Optimizer | None = None) -> int:
     checkpoint = torch.load(path, map_location="cpu")
-    model.load_state_dict(checkpoint["model_state"])
+    state_dict = {k.removeprefix("_orig_mod."): v for k, v in checkpoint["model_state"].items()}
+    model.load_state_dict(state_dict)
     if optimizer is not None:
         optimizer.load_state_dict(checkpoint["optimizer_state"])
     return checkpoint["step"]

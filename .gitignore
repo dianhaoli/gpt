@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+
+.venv/
+*.egg-info/
+
+data/
+tokenize.log
+train.log
+
+workspace/checkpoints/
+
+.DS_Store

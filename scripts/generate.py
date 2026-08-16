@@ -28,7 +28,23 @@ def main():
 
     eos_token_id = tokenizer.vocab_bytes_to_id[b"<|endoftext|>"]
     prompt_ids = tokenizer.encode(args.prompt)
-    output_ids = generate(
+
+    generated_ids = list(prompt_ids)
+    printed_text = tokenizer.decode(generated_ids)
+    print(printed_text, end="", flush=True)
+
+    def on_token(token_id: int) -> None:
+        nonlocal printed_text
+        generated_ids.append(token_id)
+        if token_id == eos_token_id:
+            return
+        # redecode the whole sequence each time so a token that's a partial
+        # multi-byte UTF-8 sequence resolves correctly once enough bytes arrive
+        text_so_far = tokenizer.decode(generated_ids)
+        print(text_so_far[len(printed_text) :], end="", flush=True)
+        printed_text = text_so_far
+
+    generate(
         model,
         prompt_ids,
         args.max_new_tokens,
@@ -37,8 +53,9 @@ def main():
         top_k=args.top_k,
         top_p=args.top_p,
         eos_token_id=eos_token_id,
+        on_token=on_token,
     )
-    print(tokenizer.decode(output_ids))
+    print()
 
 
 if __name__ == "__main__":
