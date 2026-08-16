@@ -1,0 +1,872 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 691 422" width="691" height="422" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14">
+<style>
+
+.bg{fill:#12141a}.bar{fill:#1c1f27}
+text{fill:#c8d0dc;white-space:pre}
+.dim{fill:#5c6675}.cmd{fill:#7fd6a0}.p{fill:#6fb3ff}.meta{fill:#5c6675}
+.f{opacity:0}
+
+@keyframes k0{0%,60.8645%{opacity:1}60.8655%,100%{opacity:0}}
+#f0{animation:k0 11.02s linear infinite}
+@keyframes k1{0%,60.8645%{opacity:0}60.8655%,61.0502%{opacity:1}61.0512%,100%{opacity:0}}
+#f1{animation:k1 11.02s linear infinite}
+@keyframes k2{0%,61.0502%{opacity:0}61.0512%,61.1981%{opacity:1}61.1991%,100%{opacity:0}}
+#f2{animation:k2 11.02s linear infinite}
+@keyframes k3{0%,61.1981%{opacity:0}61.1991%,61.3385%{opacity:1}61.3395%,100%{opacity:0}}
+#f3{animation:k3 11.02s linear infinite}
+@keyframes k4{0%,61.3385%{opacity:0}61.3395%,61.4772%{opacity:1}61.4782%,100%{opacity:0}}
+#f4{animation:k4 11.02s linear infinite}
+@keyframes k5{0%,61.4772%{opacity:0}61.4782%,61.6131%{opacity:1}61.6141%,100%{opacity:0}}
+#f5{animation:k5 11.02s linear infinite}
+@keyframes k6{0%,61.6131%{opacity:0}61.6141%,61.7548%{opacity:1}61.7558%,100%{opacity:0}}
+#f6{animation:k6 11.02s linear infinite}
+@keyframes k7{0%,61.7548%{opacity:0}61.7558%,61.8892%{opacity:1}61.8902%,100%{opacity:0}}
+#f7{animation:k7 11.02s linear infinite}
+@keyframes k8{0%,61.8892%{opacity:0}61.8902%,62.013%{opacity:1}62.0140%,100%{opacity:0}}
+#f8{animation:k8 11.02s linear infinite}
+@keyframes k9{0%,62.013%{opacity:0}62.0140%,62.1381%{opacity:1}62.1391%,100%{opacity:0}}
+#f9{animation:k9 11.02s linear infinite}
+@keyframes k10{0%,62.1381%{opacity:0}62.1391%,62.2624%{opacity:1}62.2634%,100%{opacity:0}}
+#f10{animation:k10 11.02s linear infinite}
+@keyframes k11{0%,62.2624%{opacity:0}62.2634%,62.3909%{opacity:1}62.3919%,100%{opacity:0}}
+#f11{animation:k11 11.02s linear infinite}
+@keyframes k12{0%,62.3909%{opacity:0}62.3919%,62.5086%{opacity:1}62.5096%,100%{opacity:0}}
+#f12{animation:k12 11.02s linear infinite}
+@keyframes k13{0%,62.5086%{opacity:0}62.5096%,62.6357%{opacity:1}62.6367%,100%{opacity:0}}
+#f13{animation:k13 11.02s linear infinite}
+@keyframes k14{0%,62.6357%{opacity:0}62.6367%,62.7623%{opacity:1}62.7633%,100%{opacity:0}}
+#f14{animation:k14 11.02s linear infinite}
+@keyframes k15{0%,62.7623%{opacity:0}62.7633%,62.8863%{opacity:1}62.8873%,100%{opacity:0}}
+#f15{animation:k15 11.02s linear infinite}
+@keyframes k16{0%,62.8863%{opacity:0}62.8873%,63.0208%{opacity:1}63.0218%,100%{opacity:0}}
+#f16{animation:k16 11.02s linear infinite}
+@keyframes k17{0%,63.0208%{opacity:0}63.0218%,63.2212%{opacity:1}63.2222%,100%{opacity:0}}
+#f17{animation:k17 11.02s linear infinite}
+@keyframes k18{0%,63.2212%{opacity:0}63.2222%,63.4219%{opacity:1}63.4229%,100%{opacity:0}}
+#f18{animation:k18 11.02s linear infinite}
+@keyframes k19{0%,63.4219%{opacity:0}63.4229%,63.5953%{opacity:1}63.5963%,100%{opacity:0}}
+#f19{animation:k19 11.02s linear infinite}
+@keyframes k20{0%,63.5953%{opacity:0}63.5963%,63.7295%{opacity:1}63.7305%,100%{opacity:0}}
+#f20{animation:k20 11.02s linear infinite}
+@keyframes k21{0%,63.7295%{opacity:0}63.7305%,63.86%{opacity:1}63.8610%,100%{opacity:0}}
+#f21{animation:k21 11.02s linear infinite}
+@keyframes k22{0%,63.86%{opacity:0}63.8610%,63.988%{opacity:1}63.9890%,100%{opacity:0}}
+#f22{animation:k22 11.02s linear infinite}
+@keyframes k23{0%,63.988%{opacity:0}63.9890%,64.1168%{opacity:1}64.1178%,100%{opacity:0}}
+#f23{animation:k23 11.02s linear infinite}
+@keyframes k24{0%,64.1168%{opacity:0}64.1178%,64.2378%{opacity:1}64.2388%,100%{opacity:0}}
+#f24{animation:k24 11.02s linear infinite}
+@keyframes k25{0%,64.2378%{opacity:0}64.2388%,64.3662%{opacity:1}64.3672%,100%{opacity:0}}
+#f25{animation:k25 11.02s linear infinite}
+@keyframes k26{0%,64.3662%{opacity:0}64.3672%,64.4891%{opacity:1}64.4901%,100%{opacity:0}}
+#f26{animation:k26 11.02s linear infinite}
+@keyframes k27{0%,64.4891%{opacity:0}64.4901%,64.6106%{opacity:1}64.6116%,100%{opacity:0}}
+#f27{animation:k27 11.02s linear infinite}
+@keyframes k28{0%,64.6106%{opacity:0}64.6116%,64.7334%{opacity:1}64.7344%,100%{opacity:0}}
+#f28{animation:k28 11.02s linear infinite}
+@keyframes k29{0%,64.7334%{opacity:0}64.7344%,64.8558%{opacity:1}64.8568%,100%{opacity:0}}
+#f29{animation:k29 11.02s linear infinite}
+@keyframes k30{0%,64.8558%{opacity:0}64.8568%,64.9773%{opacity:1}64.9783%,100%{opacity:0}}
+#f30{animation:k30 11.02s linear infinite}
+@keyframes k31{0%,64.9773%{opacity:0}64.9783%,65.1025%{opacity:1}65.1035%,100%{opacity:0}}
+#f31{animation:k31 11.02s linear infinite}
+@keyframes k32{0%,65.1025%{opacity:0}65.1035%,65.2264%{opacity:1}65.2274%,100%{opacity:0}}
+#f32{animation:k32 11.02s linear infinite}
+@keyframes k33{0%,65.2264%{opacity:0}65.2274%,65.35%{opacity:1}65.3510%,100%{opacity:0}}
+#f33{animation:k33 11.02s linear infinite}
+@keyframes k34{0%,65.35%{opacity:0}65.3510%,65.4735%{opacity:1}65.4745%,100%{opacity:0}}
+#f34{animation:k34 11.02s linear infinite}
+@keyframes k35{0%,65.4735%{opacity:0}65.4745%,65.5951%{opacity:1}65.5961%,100%{opacity:0}}
+#f35{animation:k35 11.02s linear infinite}
+@keyframes k36{0%,65.5951%{opacity:0}65.5961%,65.7193%{opacity:1}65.7203%,100%{opacity:0}}
+#f36{animation:k36 11.02s linear infinite}
+@keyframes k37{0%,65.7193%{opacity:0}65.7203%,65.8363%{opacity:1}65.8373%,100%{opacity:0}}
+#f37{animation:k37 11.02s linear infinite}
+@keyframes k38{0%,65.8363%{opacity:0}65.8373%,65.9583%{opacity:1}65.9593%,100%{opacity:0}}
+#f38{animation:k38 11.02s linear infinite}
+@keyframes k39{0%,65.9583%{opacity:0}65.9593%,66.0792%{opacity:1}66.0802%,100%{opacity:0}}
+#f39{animation:k39 11.02s linear infinite}
+@keyframes k40{0%,66.0792%{opacity:0}66.0802%,66.1994%{opacity:1}66.2004%,100%{opacity:0}}
+#f40{animation:k40 11.02s linear infinite}
+@keyframes k41{0%,66.1994%{opacity:0}66.2004%,66.322%{opacity:1}66.3230%,100%{opacity:0}}
+#f41{animation:k41 11.02s linear infinite}
+@keyframes k42{0%,66.322%{opacity:0}66.3230%,66.4418%{opacity:1}66.4428%,100%{opacity:0}}
+#f42{animation:k42 11.02s linear infinite}
+@keyframes k43{0%,66.4418%{opacity:0}66.4428%,66.5631%{opacity:1}66.5641%,100%{opacity:0}}
+#f43{animation:k43 11.02s linear infinite}
+@keyframes k44{0%,66.5631%{opacity:0}66.5641%,66.6863%{opacity:1}66.6873%,100%{opacity:0}}
+#f44{animation:k44 11.02s linear infinite}
+@keyframes k45{0%,66.6863%{opacity:0}66.6873%,66.8054%{opacity:1}66.8064%,100%{opacity:0}}
+#f45{animation:k45 11.02s linear infinite}
+@keyframes k46{0%,66.8054%{opacity:0}66.8064%,66.9283%{opacity:1}66.9293%,100%{opacity:0}}
+#f46{animation:k46 11.02s linear infinite}
+@keyframes k47{0%,66.9283%{opacity:0}66.9293%,67.049%{opacity:1}67.0500%,100%{opacity:0}}
+#f47{animation:k47 11.02s linear infinite}
+@keyframes k48{0%,67.049%{opacity:0}67.0500%,67.1704%{opacity:1}67.1714%,100%{opacity:0}}
+#f48{animation:k48 11.02s linear infinite}
+@keyframes k49{0%,67.1704%{opacity:0}67.1714%,67.2956%{opacity:1}67.2966%,100%{opacity:0}}
+#f49{animation:k49 11.02s linear infinite}
+@keyframes k50{0%,67.2956%{opacity:0}67.2966%,67.4149%{opacity:1}67.4159%,100%{opacity:0}}
+#f50{animation:k50 11.02s linear infinite}
+@keyframes k51{0%,67.4149%{opacity:0}67.4159%,67.547%{opacity:1}67.5480%,100%{opacity:0}}
+#f51{animation:k51 11.02s linear infinite}
+@keyframes k52{0%,67.547%{opacity:0}67.5480%,67.7405%{opacity:1}67.7415%,100%{opacity:0}}
+#f52{animation:k52 11.02s linear infinite}
+@keyframes k53{0%,67.7405%{opacity:0}67.7415%,67.9709%{opacity:1}67.9719%,100%{opacity:0}}
+#f53{animation:k53 11.02s linear infinite}
+@keyframes k54{0%,67.9709%{opacity:0}67.9719%,68.1442%{opacity:1}68.1452%,100%{opacity:0}}
+#f54{animation:k54 11.02s linear infinite}
+@keyframes k55{0%,68.1442%{opacity:0}68.1452%,68.2802%{opacity:1}68.2812%,100%{opacity:0}}
+#f55{animation:k55 11.02s linear infinite}
+@keyframes k56{0%,68.2802%{opacity:0}68.2812%,68.4214%{opacity:1}68.4224%,100%{opacity:0}}
+#f56{animation:k56 11.02s linear infinite}
+@keyframes k57{0%,68.4214%{opacity:0}68.4224%,68.5662%{opacity:1}68.5672%,100%{opacity:0}}
+#f57{animation:k57 11.02s linear infinite}
+@keyframes k58{0%,68.5662%{opacity:0}68.5672%,68.7015%{opacity:1}68.7025%,100%{opacity:0}}
+#f58{animation:k58 11.02s linear infinite}
+@keyframes k59{0%,68.7015%{opacity:0}68.7025%,68.8284%{opacity:1}68.8294%,100%{opacity:0}}
+#f59{animation:k59 11.02s linear infinite}
+@keyframes k60{0%,68.8284%{opacity:0}68.8294%,68.9556%{opacity:1}68.9566%,100%{opacity:0}}
+#f60{animation:k60 11.02s linear infinite}
+@keyframes k61{0%,68.9556%{opacity:0}68.9566%,69.0795%{opacity:1}69.0805%,100%{opacity:0}}
+#f61{animation:k61 11.02s linear infinite}
+@keyframes k62{0%,69.0795%{opacity:0}69.0805%,69.2094%{opacity:1}69.2104%,100%{opacity:0}}
+#f62{animation:k62 11.02s linear infinite}
+@keyframes k63{0%,69.2094%{opacity:0}69.2104%,69.3395%{opacity:1}69.3405%,100%{opacity:0}}
+#f63{animation:k63 11.02s linear infinite}
+@keyframes k64{0%,69.3395%{opacity:0}69.3405%,69.475%{opacity:1}69.4760%,100%{opacity:0}}
+#f64{animation:k64 11.02s linear infinite}
+@keyframes k65{0%,69.475%{opacity:0}69.4760%,69.6262%{opacity:1}69.6272%,100%{opacity:0}}
+#f65{animation:k65 11.02s linear infinite}
+@keyframes k66{0%,69.6262%{opacity:0}69.6272%,69.7865%{opacity:1}69.7875%,100%{opacity:0}}
+#f66{animation:k66 11.02s linear infinite}
+@keyframes k67{0%,69.7865%{opacity:0}69.7875%,69.9332%{opacity:1}69.9342%,100%{opacity:0}}
+#f67{animation:k67 11.02s linear infinite}
+@keyframes k68{0%,69.9332%{opacity:0}69.9342%,70.0719%{opacity:1}70.0729%,100%{opacity:0}}
+#f68{animation:k68 11.02s linear infinite}
+@keyframes k69{0%,70.0719%{opacity:0}70.0729%,70.2063%{opacity:1}70.2073%,100%{opacity:0}}
+#f69{animation:k69 11.02s linear infinite}
+@keyframes k70{0%,70.2063%{opacity:0}70.2073%,70.3322%{opacity:1}70.3332%,100%{opacity:0}}
+#f70{animation:k70 11.02s linear infinite}
+@keyframes k71{0%,70.3322%{opacity:0}70.3332%,70.4585%{opacity:1}70.4595%,100%{opacity:0}}
+#f71{animation:k71 11.02s linear infinite}
+@keyframes k72{0%,70.4585%{opacity:0}70.4595%,70.5858%{opacity:1}70.5868%,100%{opacity:0}}
+#f72{animation:k72 11.02s linear infinite}
+@keyframes k73{0%,70.5858%{opacity:0}70.5868%,70.7121%{opacity:1}70.7131%,100%{opacity:0}}
+#f73{animation:k73 11.02s linear infinite}
+@keyframes k74{0%,70.7121%{opacity:0}70.7131%,70.8395%{opacity:1}70.8405%,100%{opacity:0}}
+#f74{animation:k74 11.02s linear infinite}
+@keyframes k75{0%,70.8395%{opacity:0}70.8405%,70.966%{opacity:1}70.9670%,100%{opacity:0}}
+#f75{animation:k75 11.02s linear infinite}
+@keyframes k76{0%,70.966%{opacity:0}70.9670%,100%{opacity:1}}
+#f76{animation:k76 11.02s linear infinite}
+</style>
+<rect class="bg" width="691" height="422" rx="10"/>
+<rect class="bar" width="691" height="30" rx="10"/><rect class="bar" y="16" width="691" height="14"/>
+<circle cx="18" cy="15" r="5.5" fill="#ff5f57"/>
+<circle cx="36" cy="15" r="5.5" fill="#febc2e"/>
+<circle cx="54" cy="15" r="5.5" fill="#28c840"/>
+<text x="345.5" y="20" text-anchor="middle" class="dim" font-size="12">tlm — TinyStories LM</text>
+<text x="18" y="50" class="cmd">$ python scripts/generate.py --checkpoint tlm-model/final.pt \</text>
+<text x="18" y="70.0" class="cmd">      --prompt "Once upon a time, Dan" --max-new-tokens 220</text>
+<g id="f0" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan></text>
+<rect x="194.4" y="98.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f1" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his</text>
+<rect x="261.6" y="98.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f2" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went</text>
+<rect x="337.2" y="98.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f3" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an</text>
+<rect x="387.6" y="98.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f4" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure.</text>
+<rect x="480.0" y="98.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f5" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed</text>
+<rect x="597.6" y="98.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f6" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<rect x="648.0" y="98.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f7" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and</text>
+<rect x="85.2" y="118.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f8" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path</text>
+<rect x="160.8" y="118.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f9" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up</text>
+<rect x="228.0" y="118.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f10" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down</text>
+<rect x="303.6" y="118.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f11" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The</text>
+<rect x="345.6" y="118.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f12" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was</text>
+<rect x="412.8" y="118.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f13" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining,</text>
+<rect x="488.40000000000003" y="118.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f14" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the</text>
+<rect x="555.6" y="118.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f15" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<rect x="639.6" y="118.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f16" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry.</text>
+<rect x="51.6" y="138.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f17" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So,</text>
+<rect x="85.2" y="138.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f18" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and</text>
+<rect x="152.4" y="138.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f19" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog</text>
+<rect x="219.60000000000002" y="138.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f20" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to</text>
+<rect x="278.40000000000003" y="138.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f21" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a</text>
+<rect x="337.2" y="138.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f22" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to</text>
+<rect x="396.0" y="138.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f23" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it</text>
+<rect x="471.6" y="138.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f24" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They</text>
+<rect x="522.0" y="138.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f25" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<rect x="614.4" y="138.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f26" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked,</text>
+<rect x="76.80000000000001" y="158.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f27" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they</text>
+<rect x="152.4" y="158.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f28" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not</text>
+<rect x="236.4" y="158.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f29" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a</text>
+<rect x="295.2" y="158.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f30" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<rect x="337.2" y="158.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f31" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then</text>
+<rect x="51.6" y="198.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f32" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan</text>
+<rect x="93.60000000000001" y="198.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f33" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a</text>
+<rect x="144.0" y="198.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f34" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green</text>
+<rect x="228.0" y="198.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f35" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree.</text>
+<rect x="278.40000000000003" y="198.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f36" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought</text>
+<rect x="370.8" y="198.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f37" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe</text>
+<rect x="463.20000000000005" y="198.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f38" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could</text>
+<rect x="538.8000000000001" y="198.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f39" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind</text>
+<rect x="622.8000000000001" y="198.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f40" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree</text>
+<rect x="51.6" y="218.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f41" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan</text>
+<rect x="93.60000000000001" y="218.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f42" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his</text>
+<rect x="169.20000000000002" y="218.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f43" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to</text>
+<rect x="228.0" y="218.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f44" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to</text>
+<rect x="286.8" y="218.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f45" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the</text>
+<rect x="370.8" y="218.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f46" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree.</text>
+<rect x="421.20000000000005" y="218.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f47" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But,</text>
+<rect x="463.20000000000005" y="218.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f48" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<rect x="639.6" y="218.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f49" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened.</text>
+<rect x="93.60000000000001" y="238.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f50" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big</text>
+<rect x="144.0" y="238.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f51" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came</text>
+<rect x="228.0" y="238.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f52" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew</text>
+<rect x="303.6" y="238.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f53" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree</text>
+<rect x="379.2" y="238.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f54" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down.</text>
+<rect x="429.6" y="238.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f55" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill</text>
+<rect x="505.20000000000005" y="238.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f56" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not</text>
+<rect x="572.4" y="238.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f57" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry anymore</text>
+<rect x="673.2" y="238.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f58" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan</text>
+<rect x="118.80000000000001" y="258.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f59" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his</text>
+<rect x="186.0" y="258.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f60" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell</text>
+<rect x="261.6" y="258.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f61" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a</text>
+<rect x="320.40000000000003" y="258.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f62" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<rect x="370.8" y="258.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f63" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan</text>
+<rect x="43.2" y="298.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f64" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad</text>
+<rect x="110.4" y="298.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f65" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared</text>
+<rect x="202.8" y="298.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f66" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared. He</text>
+<rect x="236.4" y="298.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f67" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared. He could not</text>
+<rect x="320.40000000000003" y="298.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f68" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared. He could not get out</text>
+<rect x="387.6" y="298.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f69" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared. He could not get out of the</text>
+<rect x="446.40000000000003" y="298.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f70" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared. He could not get out of the hole.</text>
+<rect x="496.8" y="298.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f71" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared. He could not get out of the hole. The big</text>
+<rect x="564.0" y="298.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f72" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared. He could not get out of the hole. The big green tree</text>
+<rect x="656.4" y="298.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f73" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared. He could not get out of the hole. The big green tree</text>
+<text x="18" y="330.0">had saved</text>
+<rect x="93.60000000000001" y="318.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f74" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared. He could not get out of the hole. The big green tree</text>
+<text x="18" y="330.0">had saved him.</text>
+<rect x="135.60000000000002" y="318.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f75" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared. He could not get out of the hole. The big green tree</text>
+<text x="18" y="330.0">had saved him. The end</text>
+<rect x="202.8" y="318.0" width="8" height="16" fill="#c8d0dc" opacity="0.7"/>
+</g>
+<g id="f76" class="f">
+<text x="18" y="110.0"><tspan class="p">Once upon a time, Dan</tspan> and his dog went on an adventure. They followed a big</text>
+<text x="18" y="130.0">hill and the path went up and down. The sun was shining, but the hill felt</text>
+<text x="18" y="150.0">dry. So, Dan and his dog had to find a way to cross it. They looked and</text>
+<text x="18" y="170.0">looked, but they could not find a way.</text>
+<text x="18" y="190.0"></text>
+<text x="18" y="210.0">Then, Dan saw a big green tree. He thought that maybe he could be behind the</text>
+<text x="18" y="230.0">tree. Dan told his dog to try to climb the tree. But, something unexpected</text>
+<text x="18" y="250.0">happened. A big wind came and blew the tree down. The hill was not dry</text>
+<text x="18" y="270.0">anymore. Dan and his dog fell into a hole.</text>
+<text x="18" y="290.0"></text>
+<text x="18" y="310.0">Dan was sad and scared. He could not get out of the hole. The big green tree</text>
+<text x="18" y="330.0">had saved him. The end.</text>
+<text x="18" y="350.0"></text>
+<text x="18" y="370.0"></text>
+<text x="18" y="410.0" class="meta">153 tokens in 7.3s (20.9 tok/s) · mps · Apple M4</text>
+</g>
+</svg>

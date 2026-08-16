@@ -1,13 +1,37 @@
+# Python
 __pycache__/
 *.pyc
-
-.venv/
 *.egg-info/
+.venv/
 
+# Tool caches
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# Corpora and tokenized streams
 data/
-tokenize.log
-train.log
+*.bin
 
+# Model checkpoints — a single final.pt is ~293 MB, well over
+# GitHub's 100 MB hard limit (and 2/3 of it is optimizer state)
+*.pt
+*.pth
+*.ckpt
 workspace/checkpoints/
 
+# Training run outputs
+wandb/
+*.log
+*.prof
+workspace/train_bpe_profile*
+
+# Secrets (W&B API key, etc.)
+.env
+.env.*
+!.env.example
+
+# Editors / OS
 .DS_Store
+.vscode/
+.idea/

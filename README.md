@@ -1,17 +1,33 @@
-# tlm
+# tlm - a tiny large language model
 
-A ~25M-parameter decoder-only transformer, trained from scratch on TinyStories, using a custom byte-level BPE tokenizer. Everything is self-contained: no assignment scaffolding, no test harness to satisfy — just the model, the data pipeline, and the training/inference scripts.
+A 25.57M-parameter decoder-only transformer, trained from scratch on TinyStories, with a custom byte-level BPE tokenizer. Everything is self-contained.
+
+![demo](demo.svg)
+
+*Real output from `tlm-model/final.pt` — 153 tokens at 20.9 tok/s on an Apple M4 (MPS), temperature 0.8, top-k 50. The recording is the actual token stream, replayed at the speed it was produced.*
+
+There's also a Streamlit UI over the same checkpoint:
+
+```bash
+uv run streamlit run app.py
+```
 
 ## Repo layout
 
 ```
 transformer/
 ├── pyproject.toml
+├── app.py                             # Streamlit demo UI (streams tokens from tlm-model/final.pt)
+├── demo.svg                           # the recording at the top of this README
+├── tlm-model/                         # the trained artifact: checkpoint + the vocab it was trained with
+│   ├── final.pt                       # step-20000 checkpoint (model + optimizer state, 307MB)
+│   ├── tinystories_bpe_vocab.pkl
+│   └── tinystories_bpe_merges.pkl
 ├── workspace/
-│   ├── tinystories_bpe_vocab.pkl     # trained tokenizer vocab (10,000 tokens)
-│   └── tinystories_bpe_merges.pkl    # trained tokenizer merge rules
+│   ├── tinystories_bpe_vocab.pkl      # trained tokenizer vocab (10,000 tokens)
+│   └── tinystories_bpe_merges.pkl     # trained tokenizer merge rules
 ├── data/                              # you populate this (see "Getting data onto the box")
-├── tlm/                                # the package
+├── tlm/                               # the package
 │   ├── tokenizer.py                   # BPE tokenizer: encode/decode
 │   ├── train_bpe.py                   # trains a BPE vocab from raw text (already done — vocab is in workspace/)
 │   ├── pretokenization_example.py     # find_chunk_boundaries, used to split files for parallel processing
@@ -35,125 +51,118 @@ transformer/
     └── generate.py                    # CLI: load a checkpoint, generate text
 ```
 
-## How the pieces fit together
+## Architecture
 
-**1. Tokenizer (`tlm/tokenizer.py`).** Byte-level BPE, same idea as GPT-2's tokenizer. `workspace/tinystories_bpe_vocab.pkl` and `_merges.pkl` are already trained on TinyStories (10,000-token vocab) — you don't need to retrain unless you want a different vocab size or dataset. If you do, `scripts/train_bpe_tinystories.py` reruns training from `data/TinyStoriesV2-GPT4-train.txt`.
+The end-to-end pipeline — raw text in, sampled tokens out:
 
-**2. Data prep (`scripts/prepare_data.py`).** Takes the raw TinyStories `.txt` files, splits each into chunks on `<|endoftext|>` boundaries (`find_chunk_boundaries`), tokenizes the chunks in parallel across CPU cores, and writes the resulting token ids as flat `uint16` arrays to `data/train.bin` / `data/valid.bin`. This only needs to run once per dataset/vocab combination.
+```mermaid
+flowchart TB
+    subgraph prep["one-time prep"]
+        direction LR
+        raw["TinyStoriesV2<br/>.txt (~2.2GB)"] --> bpe["train_bpe.py<br/>byte-level BPE"]
+        bpe --> vocab["vocab + merges<br/>10,000 tokens"]
+        raw --> prepare["prepare_data.py<br/>parallel tokenize"]
+        vocab --> prepare
+        prepare --> bins["train.bin / valid.bin<br/>flat uint16 token ids"]
+    end
 
-**3. Model (`tlm/model/`).** A pre-norm, decoder-only transformer — architecturally closer to Llama than to the original GPT-2:
-- RMSNorm instead of LayerNorm
-- RoPE instead of learned/sinusoidal position embeddings
-- SwiGLU feedforward instead of a plain ReLU/GELU MLP
-- Causal self-attention via `F.scaled_dot_product_attention` (dispatches to a fused flash-attention kernel on CUDA)
-- Tied input/output embeddings
-- No biases anywhere
+    subgraph training["training"]
+        direction LR
+        bins --> memmap["np.memmap +<br/>BatchPrefetcher thread"]
+        memmap --> batch["(B, 512) random windows<br/>x = ids[i:i+T], y = ids[i+1:i+T+1]"]
+        batch --> model["TransformerLM"]
+        model --> loss["cross-entropy<br/>over 10k logits"]
+        loss --> opt["AdamW + cosine LR<br/>grad clip 1.0"]
+        opt -.-> model
+        opt --> ckpt["final.pt"]
+    end
 
-Default config: `d_model=512, n_layers=6, n_heads=8, d_ff=1536, context_length=512, vocab_size=10000` → **25.57M params**.
-
-**4. Training (`tlm/train/train.py`).** Loads the `.bin` files as memmaps (so the dataset never has to fit in RAM), samples random contiguous windows for each batch, and trains with:
-- AdamW, fused on CUDA, with weight decay only on 2D+ parameters (matmul weights and the embedding table), not on RMSNorm scales
-- Cosine LR schedule with linear warmup
-- bf16 autocast on CUDA (fp16 + gradient scaling as a fallback if bf16 isn't supported), fp32 elsewhere
-- Gradient clipping (default max norm 1.0)
-- Gradient accumulation (`--grad-accum-steps`) for effective batch sizes larger than what fits in memory
-- `torch.compile`, applied automatically whenever a CUDA device is detected (disable with `--no-compile`)
-- A background `BatchPrefetcher` thread that prepares the next batch while the GPU is still working on the current step
-- Periodic validation loss + perplexity, periodic checkpointing, resumable via `--resume`
-- Optional Weights & Biases logging (`--wandb`)
-
-**5. Generation (`tlm/generate.py` / `scripts/generate.py`).** Autoregressive sampling with a KV cache (so each new token is an O(1) forward pass, not O(n)), temperature, top-k, and top-p, stopping at `<|endoftext|>`.
-
-## Running this on an EC2 instance
-
-### 1. Launch and connect
-
-Pick a GPU instance — a `g5.xlarge` (A10G, 24GB) or `g6.xlarge` (L4) is plenty for a 25M-param model; you don't need anything bigger. Use the AWS Deep Learning AMI (Ubuntu) if you want CUDA/drivers preinstalled, which saves you a setup step.
-
-```bash
-ssh -i your-key.pem ubuntu@<instance-public-ip>
+    subgraph inference["inference"]
+        direction LR
+        ckpt --> gen["generate.py<br/>KV-cache decode loop"]
+        vocab --> gen
+        gen --> out["temperature / top-k / top-p<br/>→ text"]
+    end
 ```
 
-### 2. Get the code and data onto the box
+And the model itself — pre-norm, decoder-only, architecturally closer to Llama than to GPT-2:
 
-From your local machine:
+```mermaid
+flowchart TB
+    ids["input_ids (B, T)"] --> emb["token_embedding<br/>10000 × 512"]
+    emb --> blk
 
-```bash
-rsync -avz --exclude .venv --exclude __pycache__ \
-  /Users/dianhaoli/llms/transformer/ ubuntu@<instance-ip>:~/transformer/
+    subgraph blk["6 × TransformerBlock"]
+        direction TB
+        x["x"] --> n1["RMSNorm"]
+        n1 --> att["Causal self-attention<br/>8 heads × d_head 64<br/>RoPE on q,k · θ=10000<br/>F.scaled_dot_product_attention<br/>+ KV cache"]
+        att --> r1(("+"))
+        x -.->|residual| r1
+        r1 --> n2["RMSNorm"]
+        n2 --> ff["SwiGLU FFN<br/>512 → 1536 → 512<br/>(gate ⊙ up) → down"]
+        ff --> r2(("+"))
+        r1 -.->|residual| r2
+    end
 
-rsync -avz \
-  /Users/dianhaoli/llms/assignment1-basics/data/TinyStoriesV2-GPT4-train.txt \
-  /Users/dianhaoli/llms/assignment1-basics/data/TinyStoriesV2-GPT4-valid.txt \
-  ubuntu@<instance-ip>:~/transformer/data/
+    blk --> fn["final RMSNorm"]
+    fn --> head["lm_head 512 → 10000<br/><i>weights tied to embedding</i>"]
+    head --> logits["logits (B, T, 10000)"]
 ```
 
-The train file is ~2.2GB — this will take a few minutes depending on your connection. Alternatively, upload the files to S3 first and `aws s3 cp` them down on the instance, which is usually faster and resumable.
+Design choices, and why:
 
-### 3. Install dependencies
+| Choice | Instead of | Why |
+| --- | --- | --- |
+| RMSNorm | LayerNorm | No mean subtraction, no bias — cheaper, and just as stable in practice |
+| RoPE | learned / sinusoidal position embeddings | Relative positions baked into attention; no position parameters to train |
+| SwiGLU | ReLU/GELU MLP | Better loss per parameter at the same FLOPs budget |
+| Pre-norm | post-norm | Clean residual path; trains without a warmup babysitting act |
+| Tied embeddings | separate lm_head | Saves 5.12M params (20% of the model) on a 10k vocab |
+| No biases anywhere | biases on linears | Free parameter savings, no measurable quality cost |
+| SDPA | hand-rolled attention matmul | Dispatches to fused flash-attention on CUDA |
 
-```bash
-ssh ubuntu@<instance-ip>
-cd ~/transformer
-curl -LsSf https://astral.sh/uv/install.sh | sh
-source $HOME/.local/bin/env
-uv sync
-```
+## Key numbers
 
-Confirm the GPU is visible:
+**Model** — `d_model=512, n_layers=6, n_heads=8, d_ff=1536, context_length=512, vocab_size=10000`:
 
-```bash
-.venv/bin/python3 -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
-```
+| | |
+| --- | --- |
+| Total parameters | **25.57M** |
+| Non-embedding parameters | 20.45M |
+| Token embedding (tied with `lm_head`) | 5.12M |
+| Attention, all 6 blocks | 6.29M |
+| SwiGLU FFNs, all 6 blocks | 14.16M |
+| Norm scales (13 RMSNorms) | 0.007M |
+| Head dim | 64 |
+| Checkpoint on disk (`final.pt`, fp32 weights + AdamW state) | 307MB |
 
-### 4. Tokenize the dataset
+**Training loss.** Plain next-token **cross-entropy**, averaged over every position in the batch — `F.cross_entropy(logits.view(-1, 10000), targets.view(-1))` in [transformer.py:58](tlm/model/transformer.py#L58). Targets are the inputs shifted by one, so a `(B, 512)` batch contributes `B × 512` prediction sites. The number is a mean negative log-likelihood in nats; `exp(loss)` is the perplexity that `estimate_loss` reports alongside it every `--eval-interval` steps ([train.py:149](tlm/train/train.py#L149)). Validation uses the same loss on `valid.bin`, averaged over `--eval-iters` (default 50) random batches.
 
-```bash
-.venv/bin/python3 scripts/prepare_data.py
-```
+Where `tlm-model/final.pt` landed after 20,000 steps:
 
-This writes `data/train.bin` and `data/valid.bin` using the vocab already in `workspace/`. Uses all CPU cores by default (`--num-workers`); with a full 2.2GB train file expect roughly 10-20 minutes depending on core count.
+| | loss (nats/token) | perplexity | bits/token |
+| --- | --- | --- | --- |
+| Train | **1.14** | 3.13 | 1.64 |
+| Validation | **1.18** | 3.25 | 1.70 |
 
-### 5. Train
+A 0.04-nat train/val gap on ~655M tokens seen means essentially no overfitting — unsurprising with dropout at 0 and roughly one pass over the data. In practical terms the model is choosing between about 3 plausible next tokens at each step, which is what a 25M-param model on a deliberately simple, small-vocabulary story corpus should look like: fluent and grammatical within TinyStories' register, and no further than that.
 
-```bash
-.venv/bin/python3 -m tlm.train.train \
-  --max-steps 20000 \
-  --batch-size 64 \
-  --checkpoint-dir workspace/checkpoints \
-  --wandb
-```
+**Training recipe** (the defaults in [train.py](tlm/train/train.py), which is what `tlm-model/final.pt` was produced with):
 
-All the model/optimization hyperparameters have sane defaults (see `tlm/train/train.py` for the full list) — you generally only need to set `--max-steps`, `--batch-size`, and whether you want `--wandb` logging. `torch.compile` and fused AdamW kick in automatically since you're on CUDA.
+| | |
+| --- | --- |
+| Steps | 20,000 (the checkpoint's recorded step) |
+| Batch | 64 sequences × 512 tokens = 32,768 tokens/step |
+| Tokens seen | 20,000 × 32,768 ≈ **655M** (order of one pass over TinyStoriesV2) |
+| Optimizer | AdamW, β=(0.9, 0.95), ε=1e-8, fused on CUDA |
+| Weight decay | 0.1 — applied to the 31 matmul/embedding tensors, **not** to the 13 RMSNorm scales |
+| LR schedule | linear warmup 500 steps → 3e-4, cosine decay → 3e-5 |
+| Grad clipping | max norm 1.0 |
+| Precision | bf16 autocast on CUDA (fp16 + GradScaler fallback), fp32 on MPS/CPU |
+| Compile | `torch.compile` on automatically when CUDA is present |
+| Init | N(0, 0.02); residual projections scaled by 1/√(2·n_layers) |
+| Final loss | 1.14 train / 1.18 val |
 
-To run it detached so it survives your SSH session dropping:
+**Inference.** Decoding is O(1) per token, not O(n): the prompt goes through in one forward pass, then each subsequent step feeds a single token and reuses the stored keys/values ([generate.py:23-35](tlm/generate.py#L23-L35)). Measured **20.9 tok/s** for the run at the top of this README (153 tokens in 7.3s, Apple M4 / MPS, fp32, no compile). A CUDA box with bf16 and a compiled model is an order of magnitude faster; this is the slow path and it's still comfortably real-time for a demo.
 
-```bash
-nohup .venv/bin/python3 -m tlm.train.train --max-steps 20000 --wandb \
-  > train.log 2>&1 &
-disown
-tail -f train.log
-```
-
-To resume after an interruption:
-
-```bash
-.venv/bin/python3 -m tlm.train.train --resume workspace/checkpoints/step_10000.pt --max-steps 20000
-```
-
-### 6. Generate from a checkpoint
-
-```bash
-.venv/bin/python3 scripts/generate.py \
-  --checkpoint workspace/checkpoints/final.pt \
-  --prompt "Once upon a time" \
-  --max-new-tokens 200
-```
-
-### 7. Pull the trained checkpoint back down
-
-```bash
-rsync -avz ubuntu@<instance-ip>:~/transformer/workspace/checkpoints/final.pt ./workspace/checkpoints/
-```
-
-Don't forget to stop or terminate the instance when you're done training.
+**Tokenizer.** Byte-level BPE, GPT-2 style, 10,000 tokens trained on TinyStories itself — small enough that the tied embedding table stays a fifth of the model, and domain-matched enough that common story words ("Once upon a time", names, "The end") are one or two tokens. `<|endoftext|>` is a special token, used both as a document separator during data prep and as the stop condition during generation.
